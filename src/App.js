@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+import NavBar from "./components/NavBar";
+import VerseList from "./pages/VerseList";
+import VerseCreate from "./pages/VerseCreate";
+import VerseDetails from "./pages/VerseDetails";
+import VerseEdit from "./pages/VerseEdit";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <NavBar />
+
+      <Routes>
+        <Route path="/" element={<Navigate to="/verses" />} />
+
+        <Route path="/verses" element={<VerseList />} />
+
+        <Route path="/verses/create" element={<VerseCreate />} />
+
+        <Route path="/verses/details/:verseId" element={<VerseDetails />} />
+
+        <Route path="/verses/edit/:verseId" element={<VerseEdit />} />
+
+        <Route
+          path="/verses/delete/:verseId"
+          element={
+            <div className="container mt-4">
+              <h2>Delete Verse Page Coming Next</h2>
+            </div>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
