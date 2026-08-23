@@ -6,6 +6,7 @@ import VerseList from "./pages/VerseList";
 import VerseCreate from "./pages/VerseCreate";
 import VerseDetails from "./pages/VerseDetails";
 import VerseEdit from "./pages/VerseEdit";
+import VerseDelete from "./pages/VerseDelete";
 import "./App.css";
 
 function App() {
@@ -24,14 +25,7 @@ function App() {
 
         <Route path="/verses/edit/:verseId" element={<VerseEdit />} />
 
-        <Route
-          path="/verses/delete/:verseId"
-          element={
-            <div className="container mt-4">
-              <h2>Delete Verse Page Coming Next</h2>
-            </div>
-          }
-        />
+        <Route path="/verses/delete/:verseId" element={<VerseDelete />} />
       </Routes>
     </BrowserRouter>
   );
